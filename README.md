@@ -2,5 +2,5 @@
 
 To run calculation on input1.txt file execute:
 ```
-sbt "project SmartPizza" "run input1.txt"
+sbt "project smartpizza" "run input1.txt"
 ```
