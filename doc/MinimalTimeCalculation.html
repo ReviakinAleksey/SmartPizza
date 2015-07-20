@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script>
+    <script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+      tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
+      "HTML-CSS": {
+        linebreaks: { automatic: true, width: "container" }          
+      }              
+   });
+</script>
+</head>
+<body>
+<p>
+    <h2>Minimum Average Waiting Time Calcualation explanation</h2>
+    <hr/>
+
+    <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>T</mi><msup><mi>a</mi><mi>i</mi></msup><mo>&#160;</mo><mo>=</mo><mo>&#160;</mo><mfrac><mrow><mo>(</mo><msub><mi>T</mi><mi>S</mi></msub><mo>+</mo><msubsup><mi>L</mi><mi>n</mi><mi>i</mi></msubsup><mo>-</mo><msubsup><mi>T</mi><mi>n</mi><mi>i</mi></msubsup><mo>)</mo><mo>&#160;</mo><mo>+</mo><mo>(</mo><msub><mi>T</mi><mi>S</mi></msub><mo>+</mo><msubsup><mi>L</mi><mi>n</mi><mi>i</mi></msubsup><mo>+</mo><msubsup><mi>L</mi><mrow><mi>n</mi><mo>-</mo><mn>1</mn></mrow><mi>i</mi></msubsup><mo>-</mo><msubsup><mi>T</mi><mrow><mi>n</mi><mo>-</mo><mn>1</mn></mrow><mi>i</mi></msubsup><mo>)</mo><mo>&#8943;</mo><mo>+</mo><mo>(</mo><msub><mi>T</mi><mi>S</mi></msub><mo>+</mo><msubsup><mi>L</mi><mi>n</mi><mi>i</mi></msubsup><mo>+</mo><msubsup><mi>L</mi><mrow><mi>n</mi><mo>-</mo><mn>1</mn></mrow><mi>i</mi></msubsup><mo>&#8230;</mo><mo>+</mo><msubsup><mi>L</mi><mn>1</mn><mi>i</mi></msubsup><mo>-</mo><msubsup><mi>T</mi><mn>1</mn><mi>i</mi></msubsup><mo>)</mo></mrow><mi>n</mi></mfrac></math>
+    <br/>
+    Where:
+    <ul>
+        <li>n - number of customers in queue</li>
+        <li><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>T</mi><msup><mi>a</mi><mi>i</mi></msup></math> - average waiting time for customers processing order number i</li>
+        <li><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>T</mi><mi>s</mi></msub></math> - algorithm starting time</li>
+        <li><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>T</mi><mi>s</mi></msub></math> - algorithm starting time</li>
+        <li><math xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mi>L</mi><mi>n</mi><mi>i</mi></msubsup></math> - the time required to cook pizza for customer number n in of customers processing order number i</li>
+        <li><math xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mi>T</mi><mi>n</mi><mi>i</mi></msubsup></math> - arrival time of customer number n of customers processing order number i </li>
+    </ul>
+    That expression can be rewritten as: <br/>
+    <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>T</mi><msup><mi>a</mi><mi>i</mi></msup><mo>&#160;</mo><mo>=</mo><mo>&#160;</mo><mfrac><mrow><mi>n</mi><mo>*</mo><msub><mi>T</mi><mi>S</mi></msub><mo>+</mo><mi>n</mi><mo>*</mo><msubsup><mi>L</mi><mi>n</mi><mi>i</mi></msubsup><mo>+</mo><mo>(</mo><mi>n</mi><mo>-</mo><mn>1</mn><mo>)</mo><mo>*</mo><msubsup><mi>L</mi><mrow><mi>n</mi><mo>-</mo><mn>1</mn></mrow><mi>i</mi></msubsup><mo>&#8230;</mo><mo>+</mo><mn>1</mn><mo>*</mo><msubsup><mi>L</mi><mn>1</mn><mi>i</mi></msubsup><mo>-</mo><msubsup><mi>T</mi><mi>n</mi><mi>i</mi></msubsup><mo>-</mo><msubsup><mi>T</mi><mrow><mi>n</mi><mo>-</mo><mn>1</mn></mrow><mi>i</mi></msubsup><mo>&#8943;</mo><mo>-</mo><msubsup><mi>T</mi><mn>1</mn><mi>i</mi></msubsup><mo>)</mo></mrow><mi>n</mi></mfrac></math>
+    <br/>
+    <br/>
+    Let's calculate difference between average waiting time for i-th and j-th customer processing order combinations (number of customers in queue does not change hence we skip it):
+    <br/>
+    <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>n</mi><mo>*</mo><msub><mi>T</mi><mi>S</mi></msub><mo>+</mo><mi>n</mi><mo>*</mo><msubsup><mi>L</mi><mi>n</mi><mi>i</mi></msubsup><mo>+</mo><mo>(</mo><mi>n</mi><mo>-</mo><mn>1</mn><mo>)</mo><mo>*</mo><msubsup><mi>L</mi><mrow><mi>n</mi><mo>-</mo><mn>1</mn></mrow><mi>i</mi></msubsup><mo>&#8230;</mo><mo>+</mo><mn>1</mn><mo>*</mo><msubsup><mi>L</mi><mn>1</mn><mi>i</mi></msubsup><mo>-</mo><msubsup><mi>T</mi><mi>n</mi><mi>i</mi></msubsup><mo>-</mo><msubsup><mi>T</mi><mrow><mi>n</mi><mo>-</mo><mn>1</mn></mrow><mi>i</mi></msubsup><mo>&#8943;</mo><mo>-</mo><msubsup><mi>T</mi><mn>1</mn><mi>i</mi></msubsup><mo>)</mo><mo>&#160;</mo><mo>-</mo><mo>&#160;</mo><mspace linebreak="newline"/><mo>-</mo><mo>&#160;</mo><mo>(</mo><mi>n</mi><mo>*</mo><msub><mi>T</mi><mi>S</mi></msub><mo>+</mo><mi>n</mi><mo>*</mo><msubsup><mi>L</mi><mi>n</mi><mi>j</mi></msubsup><mo>+</mo><mo>(</mo><mi>n</mi><mo>-</mo><mn>1</mn><mo>)</mo><mo>*</mo><msubsup><mi>L</mi><mrow><mi>n</mi><mo>-</mo><mn>1</mn></mrow><mi>j</mi></msubsup><mo>&#8230;</mo><mo>+</mo><mn>1</mn><mo>*</mo><msubsup><mi>L</mi><mn>1</mn><mi>j</mi></msubsup><mo>-</mo><msubsup><mi>T</mi><mi>n</mi><mi>j</mi></msubsup><mo>-</mo><msubsup><mi>T</mi><mrow><mi>n</mi><mo>-</mo><mn>1</mn></mrow><mi>j</mi></msubsup><mo>&#8943;</mo><mo>-</mo><msubsup><mi>T</mi><mn>1</mn><mi>j</mi></msubsup><mo>)</mo><mo>)</mo><mo>&#160;</mo><mo>=</mo><mo>&#160;</mo><mspace linebreak="newline"/><mo>=</mo><mo>&#160;</mo><mi>n</mi><mo>*</mo><msubsup><mi>L</mi><mi>n</mi><mi>i</mi></msubsup><mo>+</mo><mo>(</mo><mi>n</mi><mo>-</mo><mn>1</mn><mo>)</mo><mo>*</mo><msubsup><mi>L</mi><mrow><mi>n</mi><mo>-</mo><mn>1</mn></mrow><mi>i</mi></msubsup><mo>&#8230;</mo><mo>+</mo><mn>1</mn><mo>*</mo><msubsup><mi>L</mi><mn>1</mn><mi>i</mi></msubsup><mo>&#160;</mo><mo>-</mo><mo>&#160;</mo><mo>&#160;</mo><mo>(</mo><mi>n</mi><mo>*</mo><msubsup><mi>L</mi><mi>n</mi><mi>j</mi></msubsup><mo>+</mo><mo>(</mo><mi>n</mi><mo>-</mo><mn>1</mn><mo>)</mo><mo>*</mo><msubsup><mi>L</mi><mrow><mi>n</mi><mo>-</mo><mn>1</mn></mrow><mi>j</mi></msubsup><mo>&#8230;</mo><mo>+</mo><mn>1</mn><mo>*</mo><msubsup><mi>L</mi><mn>1</mn><mi>j</mi></msubsup><mo>)</mo></math>
+    <br/>
+    <br/>
+    Hence <math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>T</mi><mi>s</mi></msub></math> and all <math xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mi>T</mi><mi>n</mi><mi>i</mi></msubsup></math> does not affect on average waiting time difference and can be skipped.
+    <hr/>
+    According to this we calculate <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>M</mi><mi>a</mi><mi>r</mi><msup><mi>k</mi><mi>i</mi></msup><mo>&#160;</mo><mo>=</mo><mo>&#160;</mo><mi>n</mi><mo>*</mo><msubsup><mi>L</mi><mi>n</mi><mi>i</mi></msubsup><mo>+</mo><mo>(</mo><mi>n</mi><mo>-</mo><mn>1</mn><mo>)</mo><mo>*</mo><msubsup><mi>L</mi><mrow><mi>n</mi><mo>-</mo><mn>1</mn></mrow><mi>i</mi></msubsup><mo>&#8230;</mo><mo>+</mo><mn>1</mn><mo>*</mo><msubsup><mi>L</mi><mn>1</mn><mi>i</mi></msubsup><mo>&#160;</mo></math> for each customers processing order variant and minimum value of this mark will corresponds to combination with minimum average waiting time.
+</p>
+</body>
+</html>
